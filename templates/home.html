@@ -1,0 +1,17 @@
+{% extends "django_sb_admin/base.html" %}
+{% block sb_admin_header %}FAQ - IM Systems{% endblock sb_admin_header %}
+{% block sb_admin_title %}FAQ-Self Tool{% endblock sb_admin_title %}
+{% block sb_admin_sidebar %}{% include "sidebar.html"%}{% endblock sb_admin_sidebar %}
+{% block sb_admin_navbar_right %}{% include 'search.html' %}{% endblock sb_admin_navbar_right %}
+
+{% block sb_admin_content %}
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          {% block sb_admin_breadcrumb %}
+
+           {% endblock sb_admin_breadcrumb %}
+        </li>
+
+      </ol>
+{% endblock sb_admin_content %}
+{% block sb_admin_copyright %}<!-- copyright -->{% endblock sb_admin_copyright %}

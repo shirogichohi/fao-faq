@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block sb_admin_title %}IM Issues{% endblock sb_admin_title %}
+
+{% block sb_admin_content %}
+  {% block sb_admin_breadcrumb_active %}
+         / Questions / Answers
+  {% endblock sb_admin_breadcrumb_active %}
+<h1>IM Systems FAQ</h1>
+<a href="{% url 'issue_new' %}" class="btn btn-primary">Add New</a>
+<table id="example" class="table table-bordered table-hover">
+    <thead>
+    <tr>
+        <th>IM Prroject</th>
+        <th>Frequently Asked Question</th>
+        <th>Answer</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for Issues in issue_list %}
+    <tr>
+        <td>{{ Issues.project }}</td>
+         <td>{{ Issues.question }}</td>
+         <td> <a href="{% url 'issue_view' Issues.id %}"  title="View item" >
+            Check Answer
+         </a>
+           </td>
+            <td>
+            <a href="{% url 'issue_edit' Issues.id %}"   title="edit item" ><i class="fas fa-edit"></i></a>
+            <a href="{% url 'issue_delete' Issues.id %}"   title="delete item" ><i class="fas fa-trash-alt"></i></a>
+        </td>
+
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock sb_admin_content %}

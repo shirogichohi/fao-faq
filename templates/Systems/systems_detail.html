@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block sb_admin_title %}IM Projects{% endblock sb_admin_title %}
+
+{% block sb_admin_content %}
+  {% block sb_admin_breadcrumb_active %}
+         / Projects / View
+  {% endblock sb_admin_breadcrumb_active %}
+<p>Name: {{object.project}}</p>
+
+{% endblock %}

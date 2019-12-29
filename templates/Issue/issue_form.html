@@ -1,0 +1,34 @@
+ {% extends 'base.html' %}
+{% block sb_admin_title %}IM Projects{% endblock sb_admin_title %}
+
+{% block sb_admin_content %}
+   {% block sb_admin_breadcrumb_active %}
+         / Questions / Answers / Add
+  {% endblock sb_admin_breadcrumb_active %}
+        <form id="item_update_form" method='post' class="form" role="form" >
+
+              <div class="modal-body">
+                    {% csrf_token %}
+                    {{ form.non_field_errors }}
+                  {{ form.media }}
+                    <div class="form-group">
+                    {% for field in form %}
+                        <div class="form-group">
+                            {% if field.errors %}
+                                <ul class="form-errors">
+                                {% for error in field.errors %}
+                                    <li><span class="fa fa-exclamation-triangle"></span> <strong>{{ error|escape }}</strong></li>
+                                {% endfor %}
+                                </ul>
+                            {% endif %}
+                            {{ field.label_tag }} {{ field }}
+                            {% if field.help_text %}<div class="form-helptext">{{ field.help_text }}</div>{% endif %}
+                        </div>
+                    {% endfor %}
+                    </div>
+       </div>
+
+                <button type="submit" class="btn btn-primary">Save</button>
+
+        </form>
+ {% endblock %}

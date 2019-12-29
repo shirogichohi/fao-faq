@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block sb_admin_title %}IM Projects{% endblock sb_admin_title %}
+
+{% block sb_admin_content %}
+  {% block sb_admin_breadcrumb_active %}
+         / Projects
+  {% endblock sb_admin_breadcrumb_active %}
+<h1>IM Projects</h1>
+<div class="col-xl-3 col-sm-6 mb-3">
+<a href="{% url 'project_new' %}" class="btn btn-primary">Add New</a>
+</div>
+<table id="example" class="table table-bordered table-hover">
+    <thead>
+    <tr>
+        <th>IM Prroject</th>
+        <th>Description</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for projects in project_list %}
+    <tr>
+        <td>{{ projects.project }}</td>
+         <td>{{ projects.description }}</td>
+            <td>
+            <a href="{% url 'project_view' projects.id %}"  title="View item" ><i class="fas fa-eye"></i></a>
+            <a href="{% url 'project_edit' projects.id %}"   title="edit item" ><i class="fas fa-edit"></i></a>
+            <a href="{% url 'project_delete' projects.id %}"   title="delete item" ><i class="fas fa-trash-alt"></i></a>
+        </td>
+
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock sb_admin_content %}

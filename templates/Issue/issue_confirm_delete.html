@@ -1,0 +1,21 @@
+ {% extends 'base.html' %}
+{% block sb_admin_title %}IM Projects{% endblock sb_admin_title %}
+{% block sb_admin_content %}
+   {% block sb_admin_breadcrumb_active %}
+         / Question / Answers / Delete
+  {% endblock sb_admin_breadcrumb_active %}
+<div class="card">
+    <div class="card-header">
+        <h5 class="card-title">Delete FAQ : {{object.question}}</h5>
+    </div>
+    <div class="card-body">
+        <form method="post">
+            {% csrf_token %}
+            <div class="alert alert-warning" role="alert">
+                Are you sure you want to delete <strong>{{ object }}</strong> ?
+            </div>
+            <button type="submit" class="btn btn-danger">Delete</button>
+        </form>
+    </div>
+</div>
+ {% endblock %}
